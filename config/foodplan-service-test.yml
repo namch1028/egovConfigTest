@@ -1,0 +1,20 @@
+database:
+  #  mysql
+  #  url: jdbc:mysql://122.44.88.239:33069/msaportal
+  #  mssql
+  # url: jdbc:sqlserver://122.44.88.239:1433
+  url: jdbc:sqlserver://hs.medieng.com
+  # url: jdbc:sqlserver://211.57.200.99
+    
+spring:
+  datasource:
+    url: ${database.url};DatabaseName=FoodPlanDev;encrypt=false;
+    # url: ${database.url};DatabaseName=FoodPlan;encrypt=false;
+    username: FoodPlan
+    password: FoodPlan
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    

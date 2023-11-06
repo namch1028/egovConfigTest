@@ -1,0 +1,28 @@
+database:
+  #  mysql
+  #  url: jdbc:mysql://122.44.88.239:33069/msaportal
+  #  mssql
+  # url: jdbc:sqlserver://122.44.88.239:1433
+    url: jdbc:sqlserver://hs.medieng.com
+    
+spring:
+  datasource:
+    url: ${database.url};DatabaseName=msaportal;encrypt=false;
+    username: FoodPlan
+    password: FoodPlan
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  cloud:
+    bus:
+      destination: springCloudBus
+    stream:
+      function:
+        definition: inventoryUpdated;busConsumer # 예약 요청후 물품 재고업데이트 결과에 이벤트에 대한 consumer function & springcloudbus consumer function
+      bindings:
+        busConsumer-in-0:
+          destination: ${spring.cloud.bus.destination}
+        reserveRequest-out-0: # 예약 요청후 물품 재고업데이트 이벤트에 대한 supplier binding
+          destination: reserve-request.topic # queue name
+          group: reserved
+        inventoryUpdated-in-0: # 예약 요청후 물품 재고업데이트 결과에 이벤트에 대한 consumer binding
+          destination: inventory-updated.topic # queue name
+          group: reserved

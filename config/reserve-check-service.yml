@@ -1,0 +1,20 @@
+database:
+  #  mysql
+  #  url: jdbc:mysql://122.44.88.239:33069/msaportal
+  #  mssql
+  # url: jdbc:sqlserver://122.44.88.239:1433
+    url: jdbc:sqlserver://hs.medieng.com
+    
+spring:
+  datasource:
+    url: ${database.url};DatabaseName=msaportal;encrypt=false;
+    username: FoodPlan
+    password: FoodPlan
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  
+  cloud:
+    stream:
+      bindings:
+        attachmentEntity-out-0: # 첨부파일 entity 정보 업데이트 하기 위한 이벤트
+          destination: attachment-entity.topic # queue name
+          group: attachment

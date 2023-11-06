@@ -1,0 +1,42 @@
+database:
+  #  mysql
+  #  url: jdbc:mysql://122.44.88.239:33069/msaportal
+  #  mssql
+  # url: jdbc:sqlserver://122.44.88.239:1433
+    url: jdbc:sqlserver://hs.medieng.com
+    
+spring:
+  datasource:
+    url: ${database.url};DatabaseName=msaportal;encrypt=false;
+    username: FoodPlan
+    password: FoodPlan
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  cloud:
+    bus:
+      destination: springCloudBus
+    stream:
+      function:
+        definition: attachmentEntity;busConsumer # 첨부파일 entity 정보 업데이트 하기 위한 이벤트에 대한 consumer function & springcloudbus consumer function
+      bindings:
+        busConsumer-in-0:
+          destination: ${spring.cloud.bus.destination}
+        attachmentEntity-in-0: # 첨부파일 entity 정보 업데이트 하기 위한 이벤트
+          destination: attachment-entity.topic # queue name
+          group: attachment
+        attachmentEntity-out-0: # 첨부파일 entity 정보 업데이트 하기 위한 이벤트
+          destination: attachment-entity.topic # queue name
+          group: attachment
+
+file:
+#  directory: ${user.home}/msa-attach-volume
+  directory: D:/msa-attach-volume
+messages:
+  directory: ${file.directory}/messages
+# ftp server
+ftp:
+  hostname: 'ftp_server_hostname'
+  username: 'ftp_server_username'
+  password: 'ftp_server_password'
+  port: 21
+  directory: /mnt
+  enabled: false # ftp 사용 여부, FTP 서버에 최상위 디렉토리 자동 생성 및 구현체를 결정하게 된다.
