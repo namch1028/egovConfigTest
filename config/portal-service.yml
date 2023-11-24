@@ -29,7 +29,7 @@ spring:
 
 file:
 #  directory: ${user.home}/msa-attach-volume
-  directory: C:/msa-attach-volume
+  directory: C:/msa-attach
 messages:
   directory: ${file.directory}/messages
 # ftp server
