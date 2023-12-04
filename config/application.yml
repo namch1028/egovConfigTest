@@ -12,11 +12,11 @@ eureka:
     register-with-eureka: true # eureka 서버에 등록
     fetch-registry: true # 외부 검색 가능
     service-url:
-      defaultZone: http://discovery:8761/eureka
+      defaultZone: http://admin:admin@${eureka.instance.hostname:localhost}:8761/eureka
 
 # file attach location - messages{lang}.properties 도 이 경로에 위치한다.
 file:
-  directory: /data/jbfood # url 사용시에는 사용되지 않는다
+  directory: /data/jbfood
   url: http://${file.hostname:localhost}:8080 # nginx 로 파일 다운로드 처리
 messages:
   directory: ${file.directory}/messages
@@ -36,4 +36,3 @@ spring:
 
 egov:
   message: hello
-
