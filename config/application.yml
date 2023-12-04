@@ -36,3 +36,9 @@ spring:
 
 egov:
   message: hello
+
+spring.cloud:
+    discovery:
+      client:
+        serviceUrl:
+          defaultZone: http://discovery:8761/eureka/
