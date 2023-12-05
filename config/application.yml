@@ -23,6 +23,9 @@ messages:
 
 apigateway:
   host: http://${apigateway.hostname:localhost}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://discovery:8761/eureka/
 
 # rabbitmq server
 spring:
