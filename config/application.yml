@@ -36,5 +36,5 @@ spring:
   zipkin:
     base-url: http://${zipkin.hostname:localhost}:${zipkin.port:9411}
 
-#egov:
-#  message: hello
+egov:
+  message: hello
