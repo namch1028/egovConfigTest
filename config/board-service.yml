@@ -3,8 +3,9 @@ database:
   #  url: jdbc:mysql://122.44.88.239:33069/msaportal
   #  mssql
   # url: jdbc:sqlserver://122.44.88.239:1433
-    url: jdbc:sqlserver://211.57.200.99
+  # url: jdbc:sqlserver://211.57.200.99
   # url: jdbc:sqlserver://hs.medieng.com
+    url: jdbc:sqlserver://food.medieng.com
     
 spring:
   datasource:
