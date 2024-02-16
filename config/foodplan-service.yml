@@ -4,7 +4,8 @@ database:
   #  mssql
   # url: jdbc:sqlserver://122.44.88.239:1433
   # url: jdbc:sqlserver://hs.medieng.com
-  url: jdbc:sqlserver://food.medieng.com
+  # url: jdbc:sqlserver://food.medieng.com
+    url: jdbc:sqlserver://32.0.3.14
     
 spring:
   datasource:
