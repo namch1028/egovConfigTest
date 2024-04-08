@@ -1,6 +1,6 @@
 # 2시간(7,200,000), 1일(86,400,000) jwt token
 token:
-  expiration_time: 7200000
+  expiration_time: 7300000
   refresh_time: 86400000
   secret: 'token_secret'
 
