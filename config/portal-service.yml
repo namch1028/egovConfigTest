@@ -7,7 +7,8 @@ database:
   # url: jdbc:sqlserver://hs.medieng.com
     url: jdbc:sqlserver://food.medieng.com
   # url: jdbc:sqlserver://32.0.3.14
-
+token:
+  secret: 'token_secret'
 easy_certi:
   url : http://123.41.16.194:5500/upcloud/privacys
   
