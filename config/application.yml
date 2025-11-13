@@ -9,7 +9,7 @@ easy_certi:
 
 eureka:
   instance:
-    hostname: localhost #localhost
+    hostname: discovery #localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # random port 사용시 eureka server에 인스턴스가 각각 표시되지 않는다
     preferIpAddress: true # 서비스간 통신 시 hostname 보다 ip 를 우선
   client:
@@ -17,7 +17,6 @@ eureka:
     fetch-registry: true # 외부 검색 가능
     service-url:
       defaultZone: http://admin:admin@${eureka.instance.hostname:localhost}:8761/eureka
-      #http://admin:admin@${eureka.instance.hostname:localhost}:8761/eureka
 
 # file attach location - messages{lang}.properties 도 이 경로에 위치한다.
 file:
